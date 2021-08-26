@@ -42,17 +42,17 @@ public class DruidConfig {
         return ds;
     }
 
-    @Bean(name = "TestDB2Source")
-    @Autowired
-    public DataSource TestDB2Source(Environment env) {
-        AtomikosDataSourceBean ds = new AtomikosDataSourceBean();
-        Properties prop = build(env, "spring.datasource.druid.T_TestDB2.");
-        ds.setXaDataSourceClassName("com.alibaba.druid.pool.xa.DruidXADataSource");
-        ds.setUniqueResourceName("T_TestDB2");
-        ds.setPoolSize(5);
-        ds.setXaProperties(prop);
-        return ds;
-    }
+//    @Bean(name = "TestDB2Source")
+//    @Autowired
+//    public DataSource TestDB2Source(Environment env) {
+//        AtomikosDataSourceBean ds = new AtomikosDataSourceBean();
+//        Properties prop = build(env, "spring.datasource.druid.T_TestDB2.");
+//        ds.setXaDataSourceClassName("com.alibaba.druid.pool.xa.DruidXADataSource");
+//        ds.setUniqueResourceName("T_TestDB2");
+//        ds.setPoolSize(5);
+//        ds.setXaProperties(prop);
+//        return ds;
+//    }
 
     /*
      * @Description 注入事物管理器
