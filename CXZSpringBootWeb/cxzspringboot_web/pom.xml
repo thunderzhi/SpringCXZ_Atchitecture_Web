@@ -80,6 +80,7 @@
             <version>3.0.2</version>
         </dependency>
     </dependencies>
+
     <profiles>
         <profile>
             <id>dev</id>
@@ -109,6 +110,7 @@
             </build>
         </profile>
     </profiles>
+
     <build>
         <plugins>
             <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
@@ -157,7 +159,7 @@
             </resource>
             <resource>
                 <!-- 指定打包当前环境下的文件 -->
-                <directory>src/main/resources/env/${running.env}</directory>
+                <directory>src/main/resources/env/dev</directory>
             </resource>
         </resources>
     </build>
