@@ -1,0 +1,16 @@
+server:
+    #port: 8080
+  servlet:
+  context-path: /cxzweb/springdemo
+
+
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://xxxx:3306/T_TestDB?characterEncoding=utf8
+    username: root
+    password: xxxx
+    init
+
+
