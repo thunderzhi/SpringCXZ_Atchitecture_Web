@@ -1,7 +1,7 @@
 package com.cxz.cxzspringboot_web.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.cxz.cxzspringboot_web.mapper.OrderMapper;
+import com.cxz.cxzspringboot_web.mapper.TestDB.OrderMapper;
 import com.cxz.cxzspringboot_web.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

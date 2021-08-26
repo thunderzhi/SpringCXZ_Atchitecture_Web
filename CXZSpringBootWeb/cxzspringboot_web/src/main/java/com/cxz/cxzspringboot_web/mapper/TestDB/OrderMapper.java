@@ -1,4 +1,4 @@
-package com.cxz.cxzspringboot_web.mapper;
+package com.cxz.cxzspringboot_web.mapper.TestDB;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.cxz.cxzspringboot_web.model.Order;

@@ -1,4 +1,4 @@
-package com.cxz.cxzspringboot_web.mapper;
+package com.cxz.cxzspringboot_web.mapper.TestDB;
 
 import org.apache.ibatis.jdbc.SQL;
 import org.springframework.stereotype.Repository;
