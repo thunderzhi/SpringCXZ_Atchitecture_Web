@@ -1,11 +1,11 @@
 package com.cxz.cxzspringboot_web.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.cxz.cxzspringboot_web.model.Order;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.SelectProvider;
-import org.springframework.core.annotation.Order;
 
 import java.util.List;
 
