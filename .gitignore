@@ -23,9 +23,5 @@
 hs_err_pid*
 /cxzspringboot_web/cxzspringboot_web.iml
 /cxzspringboot_web/HELP.md
-/CXZSpringBootWeb/cxzspringboot_web/.mvn/wrapper/maven-wrapper.jar
-/CXZSpringBootWeb/cxzspringboot_web/.mvn/wrapper/maven-wrapper.properties
-/CXZSpringBootWeb/cxzspringboot_web/.mvn/wrapper/MavenWrapperDownloader.java
-/CXZSpringBootWeb/cxzspringboot_web/.mvn/wrapper/maven-wrapper.jar
-/CXZSpringBootWeb/cxzspringboot_web/.gitignore
-/CXZSpringBootWeb/cxzspringboot_web/.mvn/wrapper/maven-wrapper.jar
+/CXZSpringBootWeb/cxzspringboot_web/.mvn/wrapper/*
+ 
