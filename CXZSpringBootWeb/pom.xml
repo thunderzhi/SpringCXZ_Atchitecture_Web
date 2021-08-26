@@ -13,10 +13,10 @@
   <artifactId>CXZSpringBootWeb</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <modules>
-    <module>cxzspringboot_web</module>
-    <module>util</module>
-  </modules>
+<!--  <modules>-->
+<!--    <module>cxzspringboot_web</module>-->
+<!--    <module>util</module>-->
+<!--  </modules>-->
   <packaging>pom</packaging>
   <name>CXZSpringBootWeb</name>
   <!-- FIXME change it to the project's website -->
