@@ -31,8 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-
-
-
-/CXZSpringBootWeb/cxzspringboot_web/src/main/resources/application-local.yml
