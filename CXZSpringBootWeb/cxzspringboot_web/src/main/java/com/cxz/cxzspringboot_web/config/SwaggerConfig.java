@@ -31,8 +31,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("国旅财务接口文档")
-                .description("国旅财务数据和操作接口。")
+                .title("springdemotestApi")
+                .description("springdemotestApi")
                 .version("1.0")
                 .build();
     }

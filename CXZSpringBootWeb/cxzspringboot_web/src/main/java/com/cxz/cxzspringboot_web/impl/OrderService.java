@@ -23,4 +23,9 @@ public class OrderService {
     public List<Order> getOrderList(QueryWrapper<Order> qw){
         return orderMapper.selectAll( );
     }
+
+    public List<Order> getOrderByid(QueryWrapper<Order>  qw){
+        List<Order> orders = orderMapper.selectList(qw);
+        return orders;
+    }
 }
