@@ -1,6 +1,7 @@
 package com.cxz.cxzspringboot_web.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.cxz.cxzspringboot_web.impl.LeeCodeService;
 import com.cxz.cxzspringboot_web.impl.OrderService;
 import com.cxz.cxzspringboot_web.model.Order;
 import com.cxz.cxzspringboot_web.model.OrderRequest;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -31,7 +33,10 @@ import java.util.Map;
 public class TestController {
 
     @Autowired
-    public OrderService orderService;
+    private OrderService orderService;
+    @Autowired
+    private LeeCodeService leeCodeService;
+
 
     @RequestMapping(value = "/getOrderList", method = {RequestMethod.GET})
     @ApiOperation(httpMethod = "GET", value = "getOrderList")//swagger 当前接口注解
@@ -62,13 +67,23 @@ public class TestController {
             QueryWrapper<Order> qw = new QueryWrapper<>();
             qw.eq("Id",id);
             //qw.eq("OrderNo",req.getOrderno());
-            orderList = orderService.getOrderList(qw);
+            orderList = orderService.getOrderByid(qw);
             map = new HashMap<>(6);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         map.put("getOrderByid",orderList);
+        return map;
+    }
+
+
+    @RequestMapping(value = "/addlee", method = {RequestMethod.GET})
+    @ApiOperation(httpMethod = "GET", value = "addlee")
+    public Map<String,String> addlee(OrderRequest req) throws IOException {
+        HashMap<String, String> map = new HashMap<>();
+        int res = leeCodeService.AddLC();
+        map.put("testread", String.valueOf(res));
         return map;
     }
 }

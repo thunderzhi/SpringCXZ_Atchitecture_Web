@@ -1,5 +1,6 @@
 package com.cxz.cxzspringboot_web.config;
 
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -30,10 +31,10 @@ public class TestDBDataSourceConfig {
     @Qualifier("TestDBSource")
     private DataSource ds;
 
-    @Bean
+    @Bean(name="TestDBSqlSessionFactory")
     @Primary
     public SqlSessionFactory TestDBSqlSessionFactory() throws Exception {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        MybatisSqlSessionFactoryBean sqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(ds);
         //指定mapper xml目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
@@ -43,8 +44,8 @@ public class TestDBDataSourceConfig {
 
 
     @Bean
-    public SqlSessionTemplate sqlSessionTemplateSystem() throws Exception {
-        SqlSessionTemplate template = new SqlSessionTemplate(TestDBSqlSessionFactory()); // 使用上面配置的Factory
+    public SqlSessionTemplate TestDBSqlSessionTemplate(@Qualifier("TestDBSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory); // 使用上面配置的Factoryc
         return template;
     }
 }

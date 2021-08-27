@@ -83,6 +83,11 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>3.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -153,19 +158,22 @@
             </plugin>
         </plugins>
         <!-- 打包资源配置 -->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <!-- 打包排除env文件夹下的所有文件 -->
-                <excludes>
-                    <exclude>env/</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <!-- 指定打包当前环境下的文件 -->
-                <directory>src/main/resources/env/dev</directory>
-            </resource>
-        </resources>
+<!--        <resources>-->
+<!--            &lt;!&ndash; 这个resource表示java下的所有.xml文件都进行加载编译 &ndash;&gt;-->
+<!--            <resource>-->
+<!--                <directory>src/main/java</directory>-->
+<!--                <includes>-->
+<!--                    <include>**/*.xml</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--            &lt;!&ndash; 执行上面的resource后需要将配置文件重新设置加载，不然不会加载主配置文件，这表示resources目录下的所有文件都进行加载编译 &ndash;&gt;-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                <includes>-->
+<!--                    <include>**/*.*</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--        </resources>-->
     </build>
 
 </project>

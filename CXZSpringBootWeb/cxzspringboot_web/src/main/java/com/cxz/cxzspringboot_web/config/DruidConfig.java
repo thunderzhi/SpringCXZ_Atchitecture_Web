@@ -2,11 +2,16 @@ package com.cxz.cxzspringboot_web.config;
 
 import com.alibaba.druid.filter.stat.StatFilter;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties;
+import com.alibaba.druid.support.http.StatViewServlet;
+import com.alibaba.druid.support.http.WebStatFilter;
 import com.alibaba.druid.wall.WallConfig;
 import com.alibaba.druid.wall.WallFilter;
 import com.atomikos.icatch.jta.UserTransactionImp;
 import com.atomikos.icatch.jta.UserTransactionManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jta.atomikos.AtomikosDataSourceBean;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -30,17 +35,30 @@ import java.util.Properties;
 @Configuration
 public class DruidConfig {
 
-    @Bean(name = "TestDBSource")
+
     @Autowired
+    @Bean(initMethod = "init", destroyMethod = "close")
+    @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource TestDBSource(Environment env) {
-        AtomikosDataSourceBean ds = new AtomikosDataSourceBean();
-        Properties prop = build(env, "spring.datasource.druid.T_TestDB.");
-        ds.setXaDataSourceClassName("com.alibaba.druid.pool.xa.DruidXADataSource");
-        ds.setUniqueResourceName("T_TestDB");
-        ds.setPoolSize(5);
-        ds.setXaProperties(prop);
+        DruidDataSource ds = new DruidDataSource();
+//        Properties prop = build(env, "spring.datasource.druid.T_TestDB.");
+//        ds.setDriverClassName("com.alibaba.druid.pool.DruidDataSource");
+//        ds.setName("T_TestDB");
+//        ds.setConnectProperties(prop);
         return ds;
     }
+
+//    @Bean(name = "TestDBSource")
+//    @Autowired
+//    public DataSource TestDBSource(Environment env) {
+//        AtomikosDataSourceBean ds = new AtomikosDataSourceBean();
+//        Properties prop = build(env, "spring.datasource.druid.T_TestDB.");
+//        ds.setXaDataSourceClassName("com.alibaba.druid.pool.xa.DruidXADataSource");
+//        ds.setUniqueResourceName("T_TestDB");
+//        ds.setPoolSize(5);
+//        ds.setXaProperties(prop);
+//        return ds;
+//    }
 
 //    @Bean(name = "TestDB2Source")
 //    @Autowired
@@ -106,14 +124,15 @@ public class DruidConfig {
      * @throws
      * @date 2019/11/14 17:42
      */
-//    @Bean
-//    public ServletRegistrationBean druidServlet() {
-//        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
-//        //控制台管理用户，加入下面2行 进入druid后台就需要登录
-//        //servletRegistrationBean.addInitParameter("loginUsername", "admin");
-//        //servletRegistrationBean.addInitParameter("loginPassword", "admin");
-//        return servletRegistrationBean;
-//    }
+
+    @Bean
+    public ServletRegistrationBean druidServlet() {
+        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
+        //控制台管理用户，加入下面2行 进入druid后台就需要登录
+        //servletRegistrationBean.addInitParameter("loginUsername", "admin");
+        //servletRegistrationBean.addInitParameter("loginPassword", "admin");
+        return servletRegistrationBean;
+    }
 
     /**
      * @Description
@@ -122,15 +141,15 @@ public class DruidConfig {
      * @throws
      * @date 2019/11/14 17:42
      */
-//    @Bean
-//    public FilterRegistrationBean filterRegistrationBean() {
-//        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-//        filterRegistrationBean.setFilter(new DruidStatProperties.WebStatFilter());
-//        filterRegistrationBean.addUrlPatterns("/*");
-//        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
-//        filterRegistrationBean.addInitParameter("profileEnable", "true");
-//        return filterRegistrationBean;
-//    }
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean() {
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+        filterRegistrationBean.setFilter(new WebStatFilter());
+        filterRegistrationBean.addUrlPatterns("/*");
+        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+        filterRegistrationBean.addInitParameter("profileEnable", "true");
+        return filterRegistrationBean;
+    }
 
     @Bean
     public StatFilter statFilter(){
