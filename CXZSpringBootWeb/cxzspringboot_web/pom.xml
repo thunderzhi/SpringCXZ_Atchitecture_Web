@@ -88,30 +88,32 @@
     <profiles>
         <profile>
             <id>dev</id>
-            <properties>
-                <running.env>dev</running.env>
-            </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
+                <profileActive>dev</profileActive>
+            </properties>
         </profile>
         <profile>
             <id>stage</id>
             <properties>
-                <running.env>stage</running.env>
+                <spring.profiles.active>stage</spring.profiles.active>
+                <profileActive>stage</profileActive>
             </properties>
-            <build>
-                <directory>../target</directory>
-            </build>
+<!--            <build>-->
+<!--                <directory>../target</directory>-->
+<!--            </build>-->
         </profile>
         <profile>
             <id>product</id>
             <properties>
                 <running.env>product</running.env>
             </properties>
-            <build>
-                <directory>../target</directory>
-            </build>
+<!--            <build>-->
+<!--                <directory>../target</directory>-->
+<!--            </build>-->
         </profile>
     </profiles>
 
@@ -163,7 +165,7 @@
             </resource>
             <resource>
                 <!-- 指定打包当前环境下的文件 -->
-                <directory>src/main/resources/env/dev</directory>
+                <directory>src/main/resources/env/${spring.profiles.active}</directory>
             </resource>
         </resources>
     </build>

@@ -1,9 +1,11 @@
 package com.cxz.cxzspringboot_web.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.cxz.cxzspringboot_web.impl.LeeCodeService;
 import com.cxz.cxzspringboot_web.impl.OrderService;
 import com.cxz.cxzspringboot_web.model.Order;
 import com.cxz.cxzspringboot_web.model.OrderRequest;
+import com.cxz.cxzspringboot_web.model.TLeecode;
 import com.cxz.util.JsonUtil;
 import com.cxz.util.LogUtil;
 import io.swagger.annotations.Api;
@@ -49,6 +51,37 @@ public class TestController {
         }
 
         map.put("order",orderList);
+        return map;
+    }
+
+    @Autowired
+    public LeeCodeService leeCodeService;
+
+    @RequestMapping(value = "/getleecodeList", method = {RequestMethod.GET})
+    @ApiOperation(httpMethod = "GET", value = "getleecodeList")//swagger 当前接口注解
+    public Map<String, List<TLeecode>> getleecodeList(OrderRequest req){
+        List<TLeecode> orderList = null;
+        HashMap<String, List<TLeecode>> map = null;
+        try {
+            LogUtil.WriteLog(MessageFormat.format("request: {0}",  JsonUtil.toJson(req)));
+            QueryWrapper<TLeecode> qw = new QueryWrapper<>();
+            //qw.eq("OrderNo",req.getOrderno());
+            orderList = leeCodeService.getAll();
+            map = new HashMap<>(6);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        map.put("order",orderList);
+        return map;
+    }
+
+    @RequestMapping(value = "/testread", method = {RequestMethod.GET})
+    @ApiOperation(httpMethod = "GET", value = "testread")
+    public Map<String,String> testread(OrderRequest req){
+        HashMap<String, String> map = null;
+        leeCodeService.read();
+        map.put("testread","ok");
         return map;
     }
 }
