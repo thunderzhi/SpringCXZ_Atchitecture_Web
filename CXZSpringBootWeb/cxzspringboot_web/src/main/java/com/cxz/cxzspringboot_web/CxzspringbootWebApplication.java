@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.cxz.cxzspringboot_web.mapper.*")
-@ServletComponentScan
+@MapperScan("com.cxz.cxzspringboot_web.mapper")
+//@ServletComponentScan
 public class CxzspringbootWebApplication {
 
     public static void main(String[] args) {
