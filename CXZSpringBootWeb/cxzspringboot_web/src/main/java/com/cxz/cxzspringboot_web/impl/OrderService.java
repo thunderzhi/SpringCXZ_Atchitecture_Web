@@ -19,7 +19,9 @@ import java.util.List;
 public class OrderService {
     @Autowired
     private OrderMapper orderMapper;
-
+    public List<Order> getOrder(QueryWrapper<Order> qw){
+        return orderMapper.selectList(qw);
+    }
     public List<Order> getOrderList(QueryWrapper<Order> qw){
         return orderMapper.selectAll( );
     }

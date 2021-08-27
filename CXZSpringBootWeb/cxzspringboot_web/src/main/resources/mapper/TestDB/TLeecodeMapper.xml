@@ -13,13 +13,13 @@
                 <result column="lastSubmittedAt" property="lastsubmittedat" />
                 <result column="numSubmitted" property="numsubmitted" />
                 <result column="lastSubmissionSrc" property="lastsubmissionsrc" />
-                <result column="__typename" property="typename" />
+                <result column="typename" property="typename" />
             </resultMap>
 
                 <!-- 通用查询结果列 -->
         <sql id="Base_Column_List">
             Id,
-        translatedTitle, frontendId, titleSlug, title, difficulty, lastSubmittedAt, numSubmitted, lastSubmissionSrc, __typename
+        translatedTitle, frontendId, titleSlug, title, difficulty, lastSubmittedAt, numSubmitted, lastSubmissionSrc, typename
     </sql>
 
     </mapper>

@@ -34,9 +34,9 @@ public class TLeecode implements Serializable {
 
     @TableField("titleSlug")
     private String titleslug;
-
+    @TableField("title")
     private String title;
-
+    @TableField("difficulty")
     private String difficulty;
 
     @TableField("lastSubmittedAt")
@@ -47,6 +47,6 @@ public class TLeecode implements Serializable {
 
     @TableField("lastSubmissionSrc")
     private String lastsubmissionsrc;
-
+    @TableField("typename")
     private String typename;
 }

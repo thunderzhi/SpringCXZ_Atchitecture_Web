@@ -95,4 +95,25 @@ public class TestController {
         map.put("testread", String.valueOf(res));
         return map;
     }
+
+    @RequestMapping(value = "/getOrder", method = {RequestMethod.GET})
+    @ApiOperation(httpMethod = "GET", value = "getOrder")//swagger 当前接口注解
+    public Map<String, List<Order>> getOrder(OrderRequest req){
+        List<Order> orderList = null;
+        HashMap<String, List<Order>> map = null;
+        try {
+            LogUtil.WriteLog(MessageFormat.format("request: {0}",  JsonUtil.toJson(req)));
+            QueryWrapper<Order> qw = new QueryWrapper<>();
+            qw.eq("Id",req.getId());
+            //qw.eq("OrderNo",req.getOrderno());
+            orderList = orderService.getOrder(qw);
+            map = new HashMap<>(6);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        map.put("order",orderList);
+        return map;
+    }
+
 }

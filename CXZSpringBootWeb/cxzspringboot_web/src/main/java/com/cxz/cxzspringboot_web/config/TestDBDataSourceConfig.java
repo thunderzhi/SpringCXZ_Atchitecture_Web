@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
@@ -30,21 +31,24 @@ public class TestDBDataSourceConfig {
     @Qualifier("TestDBSource")
     private DataSource ds;
 
-    @Bean
+    @Bean(name="TestDBSqlSessionFactory")
     @Primary
     public SqlSessionFactory TestDBSqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(ds);
         //指定mapper xml目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:mapper/TestDB/*.xml"));
+        Resource[] resources = resolver.getResources("classpath:mapper/TestDB/*.xml");
+        sqlSessionFactoryBean.setMapperLocations(resources);
+
+
         return sqlSessionFactoryBean.getObject();
     }
 
 
     @Bean
-    public SqlSessionTemplate sqlSessionTemplateSystem() throws Exception {
-        SqlSessionTemplate template = new SqlSessionTemplate(TestDBSqlSessionFactory()); // 使用上面配置的Factory
-        return template;
+    public SqlSessionTemplate TestDBSqlSessionTemplate(@Qualifier("TestDBSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+        SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory); // 使用上面配置的Factoryc
+         return template;
     }
 }
