@@ -1,6 +1,7 @@
 package com.cxz.cxzspringboot_web.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+
 import com.cxz.cxzspringboot_web.mapper.TestDB.TLeecodeMapper;
 import com.cxz.cxzspringboot_web.model.TLeecode;
 import com.cxz.util.JsonUtil;
@@ -30,23 +31,40 @@ public class LeeCodeService {
     public TLeecodeMapper tLeecodeMapper;
 
     public List<TLeecode> getAll(){
-        List<TLeecode> list = (List<TLeecode>) tLeecodeMapper.selectList(new QueryWrapper<TLeecode>().gt("Id", 0));
+        List<TLeecode> list = (List<TLeecode>) tLeecodeMapper.selectList(
+                new QueryWrapper<TLeecode>().gt("Id", 0));
         return  list;
     }
 
-    public void read(){
+    public int AddLC() throws IOException {
         Resource resource = new ClassPathResource("static/20210825LeeCodeEasy");
+        String txt =readfile(resource.getFile());
+        int i =0 ;
+        List<TLeecode> tLeecode = JsonUtil.toList(TLeecode.class, txt);
+        for (TLeecode item : tLeecode) {
 
-        System.out.println("JsonUtil.toJson(resource) = " + JsonUtil.toJson(resource));
+            i+=tLeecodeMapper.insert(item);
+        }
+        return i;
+    }
+
+
+    public void read() throws IOException {
+        Resource resource = new ClassPathResource("static/20210825LeeCodeEasy");
+        print(resource);
+        //System.out.println("JsonUtil.toJson(resource) = " + JsonUtil.toJson(resource));
         return;
     }
 
-    public void print(Resource rs){
-
+    public void print(Resource rs) throws IOException {
+        File file = rs.getFile();
+        String txt =readfile(file);
+        System.out.println("txt = " + txt);
     }
 
-    public static String readfile(String fileName ){
-        File file = new File(fileName);
+
+    public  String readfile(File file ){
+        //File file = new File(fileName);
         BufferedReader reader = null;
         StringBuilder sb = new StringBuilder();
         try {

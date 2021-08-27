@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.List;
@@ -78,10 +79,20 @@ public class TestController {
 
     @RequestMapping(value = "/testread", method = {RequestMethod.GET})
     @ApiOperation(httpMethod = "GET", value = "testread")
-    public Map<String,String> testread(OrderRequest req){
+    public Map<String,String> testread(OrderRequest req) throws IOException {
         HashMap<String, String> map = null;
         leeCodeService.read();
         map.put("testread","ok");
+        return map;
+    }
+
+
+    @RequestMapping(value = "/addlee", method = {RequestMethod.GET})
+    @ApiOperation(httpMethod = "GET", value = "addlee")
+    public Map<String,String> addlee(OrderRequest req) throws IOException {
+        HashMap<String, String> map = null;
+        int res = leeCodeService.AddLC();
+        map.put("testread", String.valueOf(res));
         return map;
     }
 }

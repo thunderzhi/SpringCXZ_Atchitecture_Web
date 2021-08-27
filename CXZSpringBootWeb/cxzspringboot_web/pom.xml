@@ -21,21 +21,24 @@
         <java.version>1.8</java.version>
         <mysql.version>5.1.45</mysql.version>
         <druid.version>1.1.22</druid.version>
+        <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jta-atomikos -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jta-atomikos</artifactId>
-            <version>2.3.2.RELEASE</version>
+            <version>${spring.boot.version}</version>
         </dependency>
 
         <dependency>
@@ -155,19 +158,19 @@
             </plugin>
         </plugins>
         <!-- 打包资源配置 -->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <!-- 打包排除env文件夹下的所有文件 -->
-                <excludes>
-                    <exclude>env/</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <!-- 指定打包当前环境下的文件 -->
-                <directory>src/main/resources/env/${spring.profiles.active}</directory>
-            </resource>
-        </resources>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                &lt;!&ndash; 打包排除env文件夹下的所有文件 &ndash;&gt;-->
+<!--                <excludes>-->
+<!--                    <exclude>env/</exclude>-->
+<!--                </excludes>-->
+<!--            </resource>-->
+<!--            <resource>-->
+<!--                &lt;!&ndash; 指定打包当前环境下的文件 &ndash;&gt;-->
+<!--                <directory>src/main/resources/env/dev</directory>-->
+<!--            </resource>-->
+<!--        </resources>-->
     </build>
 
 </project>
