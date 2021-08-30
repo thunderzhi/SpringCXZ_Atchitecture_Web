@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -13,10 +13,10 @@
   <artifactId>CXZSpringBootWeb</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-<!--  <modules>-->
-<!--    <module>cxzspringboot_web</module>-->
-<!--    <module>util</module>-->
-<!--  </modules>-->
+  <!--  <modules>-->
+  <!--    <module>cxzspringboot_web</module>-->
+  <!--    <module>util</module>-->
+  <!--  </modules>-->
   <packaging>pom</packaging>
   <name>CXZSpringBootWeb</name>
   <!-- FIXME change it to the project's website -->
@@ -26,14 +26,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-<!--    <springboot.version>2.1.6.RELEASE</springboot.version>-->
-<!--    <springframework.version>5.1.8.RELEASE</springframework.version>-->
-<!--    <atomikos.version>5.0.0</atomikos.version>-->
+    <!--    <springboot.version>2.1.6.RELEASE</springboot.version>-->
+    <!--    <springframework.version>5.1.8.RELEASE</springframework.version>-->
+    <!--    <atomikos.version>5.0.0</atomikos.version>-->
     <junit.version>4.12</junit.version>
     <log4j.version>1.2.17</log4j.version>
     <org.aspectj.version>1.9.5</org.aspectj.version>
     <servletVersion>3.1.0</servletVersion>
-<!--    <spring-webmvc.version>5.1.8.RELEASE</spring-webmvc.version>-->
+    <!--    <spring-webmvc.version>5.1.8.RELEASE</spring-webmvc.version>-->
     <jackson-version>2.9.9</jackson-version>
     <mysql.version>5.1.45</mysql.version>
     <druid.version>1.1.22</druid.version>
@@ -51,51 +51,51 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jta-atomikos -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-jta-atomikos</artifactId>
-      <version>2.3.2.RELEASE</version>
-    </dependency>
+    <!--    <dependency>-->
+    <!--      <groupId>org.springframework.boot</groupId>-->
+    <!--      <artifactId>spring-boot-starter-jta-atomikos</artifactId>-->
+    <!--      <version>2.3.2.RELEASE</version>-->
+    <!--    </dependency>-->
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>${mysql.version}</version>
-    </dependency>
+    <!--    <dependency>-->
+    <!--      <groupId>mysql</groupId>-->
+    <!--      <artifactId>mysql-connector-java</artifactId>-->
+    <!--      <version>${mysql.version}</version>-->
+    <!--    </dependency>-->
     <!--druid 依赖-->
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>druid-spring-boot-starter</artifactId>
-      <version>${druid.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.baomidou</groupId>
-      <artifactId>mybatis-plus-boot-starter</artifactId>
-      <version>3.4.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.12</version>
-      <optional>true</optional>
-    </dependency>
+    <!--    <dependency>-->
+    <!--      <groupId>com.alibaba</groupId>-->
+    <!--      <artifactId>druid-spring-boot-starter</artifactId>-->
+    <!--      <version>${druid.version}</version>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>com.baomidou</groupId>-->
+    <!--      <artifactId>mybatis-plus-boot-starter</artifactId>-->
+    <!--      <version>3.4.2</version>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>org.projectlombok</groupId>-->
+    <!--      <artifactId>lombok</artifactId>-->
+    <!--      <version>1.18.12</version>-->
+    <!--      <optional>true</optional>-->
+    <!--    </dependency>-->
     <!-- swagger3 -->
-    <dependency>
-      <groupId>io.springfox</groupId>
-      <artifactId>springfox-boot-starter</artifactId>
-      <version>3.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
+    <!--    <dependency>-->
+    <!--      <groupId>io.springfox</groupId>-->
+    <!--      <artifactId>springfox-boot-starter</artifactId>-->
+    <!--      <version>3.0.0</version>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <groupId>junit</groupId>-->
+    <!--      <artifactId>junit</artifactId>-->
+    <!--      <version>4.11</version>-->
+    <!--      <scope>test</scope>-->
+    <!--    </dependency>-->
   </dependencies>
 
   <build>
@@ -136,10 +136,10 @@
           <artifactId>maven-site-plugin</artifactId>
           <version>3.7.1</version>
         </plugin>
-<!--        <plugin>-->
-<!--          <artifactId>maven-project-info-reports-plugin</artifactId>-->
-<!--          <version>3.0.0</version>-->
-<!--        </plugin>-->
+        <!--        <plugin>-->
+        <!--          <artifactId>maven-project-info-reports-plugin</artifactId>-->
+        <!--          <version>3.0.0</version>-->
+        <!--        </plugin>-->
       </plugins>
     </pluginManagement>
   </build>
