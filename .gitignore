@@ -28,3 +28,4 @@ hs_err_pid*
 /CXZSpringBootWeb/cxzspringboot_web/src/main/resources/application-local.yml
 /CXZSpringBootWeb/cxzspringboot_web/src/main/resources/application.yml
 /CXZSpringBootWeb/cxzspringboot_web/src/main/resources/env/dev/application-dev.yml
+/CXZSpringBootWeb/cxzspringboot_web/src/main/resources/application-dev.yml
