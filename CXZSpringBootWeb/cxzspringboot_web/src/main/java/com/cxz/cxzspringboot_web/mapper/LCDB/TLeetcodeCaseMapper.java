@@ -1,4 +1,4 @@
-package com.cxz.cxzspringboot_web.mapper.TestDB;
+package com.cxz.cxzspringboot_web.mapper.LCDB;
 
 /**
  * @author cxz

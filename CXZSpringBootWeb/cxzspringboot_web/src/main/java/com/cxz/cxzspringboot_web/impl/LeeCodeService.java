@@ -50,7 +50,8 @@ public class LeeCodeService {
 
 
     public void read() throws IOException {
-        Resource resource = new ClassPathResource("static/20210825LeeCodeEasy");
+//        Resource resource = new ClassPathResource("static/20210825LeeCodeEasy");
+        Resource resource = new ClassPathResource("static/202208230001");
         print(resource);
         //System.out.println("JsonUtil.toJson(resource) = " + JsonUtil.toJson(resource));
         return;

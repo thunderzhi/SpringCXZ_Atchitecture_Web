@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cxz.cxzspringboot_web.mapper.TestDB.TLeetcodeCaseMapper">
+<mapper namespace="com.cxz.cxzspringboot_web.mapper.LCDB.TLeetcodeCaseMapper">
 
                 <!-- 通用查询映射结果 -->
         <resultMap id="BaseResultMap" type="com.cxz.cxzspringboot_web.model.TLeetcodeCase">
             <result column="Id" property="id" />
             <result column="casename" property="casename" />
+            <result column="slug_title" property="slug_title" />
                 <result column="lcid" property="lcid" />
                 <result column="ccid" property="ccid" />
                 <result column="frequency" property="frequency" />
                 <result column="frontendid" property="frontendid" />
+                <result column="lastcheckdate" property="lastcheckdate" />
                 <result column="content" property="content" />
                 <result column="level" property="level" />
             </resultMap>
 
                 <!-- 通用查询结果列 -->
         <sql id="Base_Column_List">
-            Id,
-        casename, frontendid, lcid, ccid, frequency ,level,         content,
+            Id,casename, frontendid, lastcheckdate,lcid, ccid, frequency ,level,  slug_title, content
     </sql>
 
     </mapper>

@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("t_leetcode_case")
-public class TLeecodeCase implements Serializable {
+public class TLeetcodeCase implements Serializable {
 
     private static final long serialVersionUID=1L;
 
@@ -30,11 +30,14 @@ public class TLeecodeCase implements Serializable {
     @TableField("casename")
     private String casename;
 
+    @TableField("slug_title")
+    private String slug_title;
+
     @TableField("lcid")
     private String lcid;
 
     @TableField("ccid")
-    private String ccid;
+    private int ccid;
 
     @TableField("frequency")
     private int frequency;
@@ -45,7 +48,19 @@ public class TLeecodeCase implements Serializable {
     @TableField("frontendId")
     private String frontendid;
 
+    @TableField("lastcheckdate")
+    private String lastcheckdate;
 
+    public String getLastcheckdate() {
+        return lastcheckdate;
+    }
+
+    public void setLastcheckdate(String lastcheckdate) {
+        if(lastcheckdate.contains("T")){
+            lastcheckdate = lastcheckdate.substring(0,lastcheckdate.indexOf("T"));
+        }
+        this.lastcheckdate = lastcheckdate;
+    }
 
     @TableField("content")
     private String content;
