@@ -23,22 +23,22 @@ import javax.sql.DataSource;
  * @date 2021/8/26 15:40
  */
 @Configuration
-@MapperScan(basePackages ="com.cxz.cxzspringboot_web.mapper.LCDB",
-sqlSessionFactoryRef = "LCDBSqlSessionFactory")
-public class LCDBDataSourceConfig {
+@MapperScan(basePackages ="com.cxz.cxzspringboot_web.mapper.CommonTest",
+sqlSessionFactoryRef = "CommonTestSqlSessionFactory")
+public class CommonTestDataSourceConfig {
 
     @Autowired
-    @Qualifier("LCDBSource")
+    @Qualifier("CommonTestSource")
     private DataSource ds;
 
-    @Bean(name="LCDBSqlSessionFactory")
+    @Bean(name="CommonTestSqlSessionFactory")
     @Primary
-    public SqlSessionFactory LCDBSqlSessionFactory() throws Exception {
+    public SqlSessionFactory CommonTestSqlSessionFactory() throws Exception {
         MybatisSqlSessionFactoryBean sqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(ds);
         //指定mapper xml目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        Resource[] resources = resolver.getResources("classpath:mapper/LCDB/*.xml");
+        Resource[] resources = resolver.getResources("classpath:mapper/CommonTest/*.xml");
         sqlSessionFactoryBean.setMapperLocations(resources);
 
 
@@ -47,7 +47,7 @@ public class LCDBDataSourceConfig {
 
 
     @Bean
-    public SqlSessionTemplate LCDBSqlSessionTemplate(@Qualifier("LCDBSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    public SqlSessionTemplate CommonTestSqlSessionTemplate(@Qualifier("CommonTestSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory); // 使用上面配置的Factoryc
          return template;
     }

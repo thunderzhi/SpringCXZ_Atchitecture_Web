@@ -86,11 +86,11 @@ public class mybatisGenerator {
         mpg.setGlobalConfig(gc);
          // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://x:3306/T_TestDB?useUnicode=true&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/commontest?useUnicode=true&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("sssssss");
+        dsc.setPassword("123456");
         mpg.setDataSource(dsc);
 
         // 包配置
